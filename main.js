@@ -27,10 +27,10 @@ function loadTale(id) {
   // - Attempt to fetch next tale
   // - Set prev and next buttons
 
-  return fetch(`/tales/${id}.md`)
+  return fetch(`tales/${id}.md`)
     .then(response => response.text())
     .then(setTale)
-    .then(_ => fetch(`/tales/${id + 1}.md`))
+    .then(_ => fetch(`tales/${id + 1}.md`))
     .then(response => response.status)
     .then(status => setPrevNext(id - 1, status === 200 ? id + 1 : null))
 }
